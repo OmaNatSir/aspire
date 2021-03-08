@@ -1,0 +1,20 @@
+﻿@model DBTablesMVC.Models.DldDatabase
+@{
+    ViewData["Title"] = "Database Details";
+}
+
+
+<div class="row">    
+    @if (Model != null)
+    {
+        <div>
+            <h2>@Model.DatabaseName</h2>
+            <br />
+            <text>@Model.DatabaseDescription</text>
+        </div>
+    }
+    else
+    {
+        <h6>Something went wrong... It seems there is no database with this name</h6>
+    }
+</div>

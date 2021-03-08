@@ -1,0 +1,78 @@
+﻿@model IEnumerable<DBTablesMVC.Models.DldColumn>
+@{
+    ViewData["Title"] = "Columns List of the " + @ViewBag.TableName + " table";
+}
+<div class="row">   
+    <div>
+        @if (Model.Count() > 0)
+        {
+            <div>
+                <table class="table table-bordered table-striped" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>
+                                PK
+                            </th>
+                            <th>
+                                FK
+                            </th>
+                            <th>
+                                Name
+                            </th>
+                            <th>
+                                Data type
+                            </th>
+                            <th>
+                                Description
+                            </th>
+                            <th>
+                                Nullability
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @if (item.IsPrimaryKey)
+                                    {
+                                        @item.IsPrimaryKey
+                                    }
+                                </td>
+                                <td>
+                                    @if (item.IsForeignKey)
+                                    {
+                                        @item.IsForeignKey
+                                    }
+                                </td>
+                                <td>
+                                    @item.ColumnName
+                                </td>
+                                <td>
+                                    @item.ColumnDataType
+                                </td>
+                                <td>
+                                    @item.ColumnDescription
+                                </td>
+                                @if (@item.ColumnNullability)
+                                {
+                                    <td>null</td>
+                                }
+                                else
+                                {
+                                    <td>NOT NULL</td>
+                                }
+
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>            
+        }
+        else
+        {
+            <h6>Something went wrong :( .</h6>
+        }
+    </div>
+</div>
