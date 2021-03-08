@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBTablesMVC", "DBTablesMVC.csproj", "{8DA93AB2-6474-4F24-A5C2-F543622A7A04}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8DA93AB2-6474-4F24-A5C2-F543622A7A04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DA93AB2-6474-4F24-A5C2-F543622A7A04}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DA93AB2-6474-4F24-A5C2-F543622A7A04}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DA93AB2-6474-4F24-A5C2-F543622A7A04}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B03D6F67-AE9D-4593-AF79-48DC43FE2084}
+	EndGlobalSection
+EndGlobal
