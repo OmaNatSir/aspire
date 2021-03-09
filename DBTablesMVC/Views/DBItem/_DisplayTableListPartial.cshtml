@@ -1,0 +1,30 @@
+﻿@{
+    IEnumerable<DBTablesMVC.Models.DldTable> tableModel = ViewBag.ListTable;
+}
+
+@if (tableModel.Count() > 0)
+{
+    <ul class="text-white">
+        @foreach (var item in tableModel.Select(scn => scn.DldSchema.SchemaName).Distinct())
+        {
+            <li class="text-white list-group-item:first-child">
+                @item
+                <ul>
+                    @foreach (var subitem in tableModel)
+                    {
+                        @if (subitem.DldSchema.SchemaName == item)
+                        {
+                            <li class="list-group-item:last-child"><a class="text-white" asp-action="GetColumnList" asp-route-databaseName=@ViewBag.DatabaseName asp-route-schemaName=@item asp-route-tableName=@subitem.TableName>@subitem.TableName</a></li>
+                        }
+                    }
+                </ul>
+            </li>
+        }
+    </ul>
+}
+else
+{
+    <div class="text-white">
+        <text>Something went wrong. It seems that the database is empty.</text>
+    </div>
+}

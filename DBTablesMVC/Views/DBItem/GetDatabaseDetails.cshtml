@@ -3,11 +3,13 @@
     ViewData["Title"] = "Database Details";
 }
 
-
-<div class="row">    
+<div class="row">
+    <div class="col-md-3 custom-background-color">
+        @await Html.PartialAsync("_DisplayTableListPartial");
+    </div>
     @if (Model != null)
     {
-        <div>
+        <div class="col-md-9">
             <h2>@Model.DatabaseName</h2>
             <br />
             <text>@Model.DatabaseDescription</text>
