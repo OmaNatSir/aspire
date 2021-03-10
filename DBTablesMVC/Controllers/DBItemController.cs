@@ -20,13 +20,13 @@ namespace DBTablesMVC.Controllers
 
         //TEST: /database/AdventureWorksLT2017	
         [HttpGet("database/{databaseName}")]
-        public IActionResult GetDatabaseDetails(string databaseName)
+        public async Task<IActionResult> GetDatabaseDetails(string databaseName)
         {
             try
             {
-                var database = _dbContext.DldDatabase.Where(dbs => dbs.DatabaseName == databaseName).Single();
+                var database = await _dbContext.DldDatabase.Where(dbs => dbs.DatabaseName == databaseName).SingleAsync();
 
-                ViewBag.ListTable = GetTableList(databaseName);
+                ViewBag.ListTable = await GetTableList(databaseName);
                 ViewBag.DatabaseName = database.DatabaseName;
 
                 return View((DldDatabase)database);
@@ -40,34 +40,34 @@ namespace DBTablesMVC.Controllers
 
         //TEST: /database/adventureworkslt2017/schema/saleslt/table/address
         [HttpGet("database/{databaseName}/schema/{schemaName}/table/{tableName}")]
-        public IActionResult GetColumnList(string databaseName, string schemaName, string tableName)
+        public async Task<IActionResult> GetColumnList(string databaseName, string schemaName, string tableName)
         {
-            List<DldColumn> listColumn = GetColumnListDetails(databaseName, schemaName, tableName);
+            var listColumn = await GetColumnListDetails(databaseName, schemaName, tableName);
 
-            ViewBag.ListTable = GetTableList(databaseName);
+            ViewBag.ListTable = await GetTableList(databaseName);
             ViewBag.TableName = listColumn[0].DldTable.TableName;   //Ensuring capital letters in {tableName}
             ViewBag.DatabaseName = listColumn[0].DldTable.DldSchema.DldDatabase.DatabaseName; // in {databaseName}
 
             return View(listColumn);
         }
 
-        private List<DldTable> GetTableList(string databaseName)
+        private async Task<List<DldTable>> GetTableList(string databaseName)
         {
-            return _dbContext.DldTable.Include(table => table.DldSchema)
+            return await _dbContext.DldTable.Include(table => table.DldSchema)
                                          .ThenInclude(schema => schema.DldDatabase)
                                          .Where(tbl => tbl.DldSchema.DldDatabase.DatabaseName == databaseName)
-                                         .ToList();
+                                         .ToListAsync();
         }
 
-        private List<DldColumn> GetColumnListDetails(string databaseName, string schemaName, string tableName)
+        private async Task<List<DldColumn>> GetColumnListDetails(string databaseName, string schemaName, string tableName)
         {
-            return _dbContext.DldColumn.Include(clm => clm.DldTable)
+            return await _dbContext.DldColumn.Include(clm => clm.DldTable)
                                         .ThenInclude(tbl => tbl.DldSchema)
                                         .ThenInclude(scm => scm.DldDatabase)
                                         .Where(clm => clm.DldTable.DldSchema.DldDatabase.DatabaseName == databaseName)
                                         .Where(clm => clm.DldTable.DldSchema.SchemaName == schemaName)
                                         .Where(clm => clm.DldTable.TableName == tableName)
-                                        .ToList();
+                                        .ToListAsync();
         }
     }
 }
