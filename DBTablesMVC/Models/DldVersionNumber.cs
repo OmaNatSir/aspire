@@ -25,6 +25,6 @@ namespace DBTablesMVC.Models
 
         //For Foreign keys
         public virtual ICollection<DldDatabase> DldDatabase { get; set; }
-        public virtual UserList UserList { get; set; }
+        //public virtual User User { get; set; }
     }
 }

@@ -32,7 +32,7 @@ namespace DBTablesMVC.Models
         public virtual DldDatabase DldDatabase { get; set; }
 
 
-        public virtual UserList UserList { get; set; }
+        //public virtual User User { get; set; }
 
 
         public virtual ICollection<DldTable> DldTable { get; set; }

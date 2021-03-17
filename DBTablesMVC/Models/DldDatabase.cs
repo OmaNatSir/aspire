@@ -38,7 +38,7 @@ namespace DBTablesMVC.Models
         public virtual DldVersionNumber DldVersionNumber { get; set; }
 
 
-        public virtual UserList UserList { get; set; }
+        //public virtual User User { get; set; }
 
 
         public ICollection<DldSchema> DldSchema { get; set; }

@@ -35,6 +35,6 @@ namespace DBTablesMVC.Models
         //For Foreign keys
         public virtual ICollection<DldColumn> DldColumn { get; set; }
         public virtual DldSchema DldSchema { get; set; }
-        public virtual UserList UserList { get; set; }
+        //public virtual User User { get; set; }
     }
 }
