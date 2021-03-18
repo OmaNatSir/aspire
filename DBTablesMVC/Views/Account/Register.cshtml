@@ -1,0 +1,114 @@
+﻿@model DBTablesMVC.ViewModels.RegisterViewModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+<h2>Register</h2>
+<br />
+<form method="post" class="col-md-12">
+    <h4>Company</h4>
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="row form-group">
+        <div class="col-md-3">
+            <label asp-for="CompanyName"></label>
+        </div>
+        <div class="col-md-6">
+            <input asp-for="CompanyName" class="form-control" />
+            <span asp-validation-for="CompanyName" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-3">
+            <label asp-for="CompanyBusinessIdentity"></label>
+        </div>
+        <div class="col-md-6">
+            <input asp-for="CompanyBusinessIdentity" class="form-control" />
+            <span asp-validation-for="CompanyBusinessIdentity" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-3">
+            <label asp-for="RoleInCompany"></label>
+        </div>
+        <div class="col-md-6">
+            <input asp-for="RoleInCompany" class="form-control" />
+            <span asp-validation-for="RoleInCompany" class="text-danger"></span>
+        </div>
+    </div>
+    <br />
+    <h4>User</h4>
+    <div class="row form-group">
+        <div class="col-md-3">
+            <label asp-for="FirstName"></label>
+        </div>
+        <div class="col-md-6">
+            <input asp-for="FirstName" class="form-control" />
+            <span asp-validation-for="FirstName" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-3">
+            <label asp-for="LastName"></label>
+        </div>
+        <div class="col-md-6">
+            <input asp-for="LastName" class="form-control" />
+            <span asp-validation-for="LastName" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-3">
+            <label asp-for="Email"></label>
+        </div>
+        <div class="col-md-6">
+            <input asp-for="Email" class="form-control" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-3">
+            <label asp-for="PhoneNumber"></label>
+        </div>
+        <div class="col-md-6">
+            <input asp-for="PhoneNumber" class="form-control" />
+            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+        </div>
+    </div>
+    <br />
+    <br />
+    <div class="row form-group">
+        <div class="col-md-3">
+            <label asp-for="UserName"></label>
+        </div>
+        <div class="col-md-6">
+            <input asp-for="UserName" class="form-control" />
+            <span asp-validation-for="UserName" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-3">
+            <label asp-for="Password"></label>
+        </div>
+        <div class="col-md-6">
+            <input asp-for="Password" class="form-control" />
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-3">
+            <label asp-for="ConfirmPassword"></label>
+        </div>
+        <div class="col-md-6">
+            <input asp-for="ConfirmPassword" class="form-control" />
+            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+        </div>
+    </div>
+    <br />
+    @*<div class="row form-group">
+            <div class="custom-control custom-checkbox">
+                <input asp-for="RememberMe" type="checkbox" class="custom-control-input">
+                <label class="custom-control-label" asp-for="RememberMe">@Html.DisplayNameFor(m => m.RememberMe)</label>
+            </div>
+        </div>*@
+    <button type="submit" class="btn btn-dark">Register</button>
+</form>
+
