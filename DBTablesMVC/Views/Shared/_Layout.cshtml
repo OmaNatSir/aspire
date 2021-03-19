@@ -38,16 +38,29 @@
                             <a class="nav-link text-white" asp-area="" asp-controller="DBItem" asp-action="GetDatabaseDetails" asp-route-databaseName="AdventureWorksLT2017">AdventureWorksLT2017</a>
                         </li>
                     </ul>
-                    <ul class="navbar-nav navbar-right">
-                        <li class="nav-item">
-                            <a class="nav-link text-white" asp-area="" asp-controller="Account" asp-action="Login">                                
-                                <img src="~/icon/unknown-icon.png" alt="Login icon" class="custom-icon-size" />
-                                Login
-                            </a>
-                        </li>
-
-                    </ul>
-
+                    @if (!User.Identity.IsAuthenticated)
+                    {
+                        <ul class="navbar-nav navbar-right">
+                            <li class="nav-item">
+                                <a class="nav-link text-white" asp-area="" asp-controller="Account" asp-action="Login">
+                                    <img src="~/icon/unknown-icon.png" alt="Login icon" class="custom-icon-size" />
+                                    Login
+                                </a>
+                            </li>
+                        </ul>
+                    }
+                    else
+                    {
+                        <ul class="navbar-nav navbar-right">
+                            <li class="nav-item">                                
+                                <a class="nav-link text-white" asp-area="" asp-controller="Account" asp-action="Logout">
+                                    <img src="~/icon/read-icon.png" alt="Login icon" class="custom-icon-size" />
+                                    <label class="pr-4">@User.Identity.Name</label>
+                                    Logout
+                                </a>
+                            </li>
+                        </ul>
+                    }
 
                 </div>
             </div>

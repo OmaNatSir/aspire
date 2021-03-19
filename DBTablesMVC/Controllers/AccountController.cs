@@ -21,7 +21,6 @@ namespace DBTablesMVC.Controllers
             _signInManager = signInManager;
         }
 
-        [Route("account/login")]
         [HttpGet]
         public IActionResult Login()
         {
