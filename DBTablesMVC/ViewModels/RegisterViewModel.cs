@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DBTablesMVC.ViewModels
 {
-    public class RegisterViewModel
+    public class RegisterViewModel : LoginViewModel
     {
         [Required]
         [StringLength(50)]
@@ -41,26 +41,13 @@ namespace DBTablesMVC.ViewModels
         [DataType(DataType.PhoneNumber)]
         [StringLength(25)]
         [Display(Name = "Phone number")]
-        public string PhoneNumber { get; set; }
-
-        [Required]
-        [StringLength(25)]
-        [Display(Name = "User name")]
-        public string UserName { get; set; }
-
-        [Required]
-        [DataType(DataType.Password)]
-        [Display(Name = "Password")] 
-        public string Password { get; set; }    
+        public string PhoneNumber { get; set; }        
 
         [Required]
         [DataType(DataType.Password)]
         [Display(Name = "Confirm Password")]
         [Compare("Password", ErrorMessage = "Password and confirmation password not match.")]
         public string ConfirmPassword { get; set; }
-
-        [Display(Name = "Remember Me")]
-        public bool RememberMe { get; set; }
 
     }
 }

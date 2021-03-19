@@ -14,11 +14,12 @@ namespace DBTablesMVC.Data
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
             _options = options;
-        } 
-
+        }
+        
         public DbSet<DldDatabase> DldDatabase { get; set; }
         public DbSet<DldSchema> DldSchema { get; set; }
         public DbSet<DldTable> DldTable { get; set; }
         public DbSet<DldColumn> DldColumn { get; set; }
+        public DbSet<User> User { get; set; }
     }
 }

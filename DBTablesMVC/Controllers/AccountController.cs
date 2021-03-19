@@ -21,10 +21,40 @@ namespace DBTablesMVC.Controllers
             _signInManager = signInManager;
         }
 
-       public IActionResult Register() => View();
+        [Route("account/login")]
+        [HttpGet]
+        public IActionResult Login()
+        {
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> Login(LoginViewModel user)
+        {
+            if (ModelState.IsValid)
+            {
+                var result = await _signInManager.PasswordSignInAsync(user.UserName, user.Password, user.RememberMe, false);
+
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+
+                ModelState.AddModelError(string.Empty, "Invalid Login Attempt");
+
+            }
+            return View(user);
+        }
+
+        public async Task<IActionResult> Logout()
+        {
+            await _signInManager.SignOutAsync();
+
+            return RedirectToAction("Login");
+        } 
+
+        public IActionResult Register() => View();
 
         [HttpPost]
-
         public async Task<IActionResult> Register(RegisterViewModel model)
         {
             if (ModelState.IsValid)

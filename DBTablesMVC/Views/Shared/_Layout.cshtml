@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - DB Help</title>
-    <link rel="icon" href="~/icon/logo-black-on-white-icon.png" type="image/png" sizes="32x32" />
+    <link rel="icon" href="~/icon/logo-black-on-white-icon.png" alt="Logo" type="image/png" sizes="32x32" />
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
@@ -30,7 +30,7 @@
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
                             <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">
-                                <img src="~/icon/logo-white-on-black-icon.png" style="width:45px;height:45px" />
+                                <img src="~/icon/logo-white-on-black-icon.png" alt="Go to home" style="width:45px;height:45px" />
                             </a>
                         </li>
                         <li class="nav-item">
@@ -40,9 +40,9 @@
                     </ul>
                     <ul class="navbar-nav navbar-right">
                         <li class="nav-item">
-                            <a class="nav-link text-white">
-                                <br />
-                                <img src="~/icon/read-icon.png" class="custom-icon-size" />Default Reader
+                            <a class="nav-link text-white" asp-area="" asp-controller="Account" asp-action="Login">                                
+                                <img src="~/icon/unknown-icon.png" alt="Login icon" class="custom-icon-size" />
+                                Login
                             </a>
                         </li>
 
